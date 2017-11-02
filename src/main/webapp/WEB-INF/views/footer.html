@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>footer</title>
+<link rel="stylesheet" href="public/styles/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/styles/css.css">
+	<link rel="stylesheet" href="public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script src="public/js/jquery-3.2.1.min.js"></script>
+	<script src="public/styles/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<script>
+	$(function(){
+		$(window).scroll(function(){
+			if ($(this).scrollTop()>120) {
+				$('.header').css({
+					'position' : 'fixed',
+					'height' : '40px',
+					'width' : '100%'
+				});
+				
+				$('.header').addClass('header__fixed');
+			}
+			else{
+				$('.header').css({
+					'position' : 'relative',
+					'height' : '80px',
+					'width' : ''
+				});
+				$('.header').removeClass('header__fixed');
+				
+			}
+		});
+	});
+</script>
+<footer>
+		<section class="container">
+			<section class="row">
+				<section class="col-lg-3">
+					<h2>
+						About Troghau
+					</h2>
+					<section class="footer__box">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+						</p>
+						Contact me: <br>
+						<a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+						<a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+					</section>
+				</section>
+				<section class="col-lg-3">
+					<h2>
+						Lastest Posts
+					</h2>
+					<section class="footer__box">
+						<section class="footer__box__lastest">
+							<a href="#">Font Awesome gives you scalable vector</a>
+							<span class="posttime">
+								<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
+							</span>
+						</section>
+						<section class="footer__box__lastest">
+							<a href="#">Font Awesome gives you scalable vector</a>
+							<span class="posttime">
+								<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
+							</span>
+						</section>
+						<section class="footer__box__lastest">
+							<a href="#">Font Awesome gives you scalable vector</a>
+							<span class="posttime">
+								<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
+							</span>
+						</section>
+						<section class="footer__box__lastest">
+							<a href="#">Font Awesome gives you scalable vector</a>
+							<span class="posttime">
+								<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
+							</span>
+						</section>
+					</section>
+				</section>
+				<section class="col-lg-3">
+					<h2>
+						Subcribe Email
+						
+					</h2>
+					<p>
+						Enter your email to read the lastest news
+					</p>
+					<form action="#">
+						<input type="email" placeholder="Your email..." required>
+						<button>
+							<i class="fa fa-rss" aria-hidden="true"></i>
+						</button>
+					</form>
+				</section>
+				<section class="col-lg-3">
+					<h2>
+						Categories
+					</h2>
+					<section class="footer__box__categories">
+						<section class="footer__category">
+							<section class="footer__category--left">
+								<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+								<a href="#">Sport</a>
+							</section>
+							<span>
+								5
+							</span>
+						</section>
+						<section class="footer__category">
+							<section class="footer__category--left">
+								<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+								<a href="#">Tech</a>
+							</section>
+							<span>
+								5
+							</span>
+						</section>
+						<section class="footer__category">
+							<section class="footer__category--left">
+								<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+								<a href="#">Travel</a>
+							</section>
+							<span>
+								5
+							</span>
+						</section>
+						<section class="footer__category">
+							<section class="footer__category--left">
+								<i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
+								<a href="#">Fashion</a>
+							</section>
+							<span>
+								5
+							</span>
+						</section>
+					</section>
+				</section>
+			</section>
+		</section>
+		<section class="footer__bottom">
+			<section class="container">
+				<section class="row">
+					<section class="footer__bottom__left col-lg-6">
+						<a href="#">Homepage</a>
+						<a href="#">About</a>
+						<a href="#">Contact</a>
+					</section>
+					<section class="footer__bottom__right col-lg-6">
+						© Cover by Tronghau | Design by Doanhuy - Duythe
+					</section>
+				</section>
+			</section>
+		</section>
+	</footer>
+</body>
+</html>
