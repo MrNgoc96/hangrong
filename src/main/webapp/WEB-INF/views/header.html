@@ -1,52 +1,20 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>header</title>
-	<link rel="stylesheet" href="public/styles/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="public/styles/css.css">
-	<link rel="stylesheet" href="public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<script src="public/js/jquery-3.2.1.min.js"></script>
-	<script src="public/styles/bootstrap/js/bootstrap.min.js"></script>
-</head>
 
 <body>
-<script>
-	$(function(){
-		$(window).scroll(function(){
-			if ($(this).scrollTop()>120) {
-				$('.header').css({
-					'position' : 'fixed',
-					'height' : '40px',
-					'width' : '100%'
-				});
-				
-				$('.header').addClass('header__fixed');
-			}
-			else{
-				$('.header').css({
-					'position' : 'relative',
-					'height' : '80px',
-					'width' : ''
-				});
-				$('.header').removeClass('header__fixed');
-				
-			}
-		});
-	});
-</script>
-	<header>
+	<header th:fragment="header">
 		<section class="header">
 		<section class="container">
 			<section class="row">
 				<section class="col-lg-3">
-					<img src="public/images/1.jpg" alt="Logo">
+					<img th:src="@{resources/images/1.jpg}" alt="Logo">
 				</section>
 				<section class="col-lg-9">
 					<ul class="menu">
 						<li>
-							<a href="#">Trang chủ</a>
-
+							<a href="home">Trang chủ</a>
 						</li>
 						<li>
 							<a href="#">Gánh hàng</a>
@@ -65,8 +33,11 @@
 								</li>
 							</ul>
 						</li>
-						<li>
+						<li th:if="${session.currentUser == null}">
 							<a href="#">Đăng ký / Đăng nhập</a>
+					    </li>
+					    <li th:if="${session.currentUser != null}">
+							<a href="#" th:text="${session.currentUser}"></a>
 					    </li>
                         <li>
                        <nav class="navbar navbar-light bg-light">
@@ -84,7 +55,7 @@
 		</section>
 		<section class="clear"></section>
 	</header>
-	<section class="slider hidden-xs">
+	<section class="slider hidden-xs"  th:fragment="slider">
 		<section id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -96,14 +67,14 @@
 			<!-- Wrapper for slides -->
 			<section class="carousel-inner">
 				<section class="item active">
-					<img src="public/images/slider1.jpg" alt="Los Angeles">
+					<img src="resources/images/slider1.jpg" alt="Los Angeles">
 					<div class="carousel-caption">
 						<h3>Sony Xperia Ear Concept 2017</h3>
 						<p>LA is always so much fun!</p>
 					</div>
 				</section>
 				<section class="item">
-					<img src="public/images/slider2.jpg" alt="Chicago">
+					<img src="resources/images/slider2.jpg" alt="Chicago">
 					<div class="carousel-caption">
 						<h3>The thinest beautiful laptops 2017</h3>
 						<p>LA is always so much fun!</p>
@@ -111,14 +82,14 @@
 				</section>
 
 				<section class="item">
-					<img src="public/images/slider3.jpg" alt="New York">
+					<img src="resources/images/slider3.jpg" alt="New York">
 					<div class="carousel-caption">
 						<h3>Enjoy the sunsets in the Miami beach</h3>
 						<p>LA is always so much fun!</p>
 					</div>
 				</section>
 				<section class="item">
-					<img src="public/images/slider4.jpg" alt="New York">
+					<img src="resources/images/slider4.jpg" alt="New York">
 					<div class="carousel-caption">
 						<h3>Headphone Consert in New York</h3>
 						<p>LA is always so much fun!</p>

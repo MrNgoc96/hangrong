@@ -1,41 +1,10 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>footer</title>
-<link rel="stylesheet" href="public/styles/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="public/styles/css.css">
-	<link rel="stylesheet" href="public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<script src="public/js/jquery-3.2.1.min.js"></script>
-	<script src="public/styles/bootstrap/js/bootstrap.min.js"></script>
-</head>
-
 <body>
-<script>
-	$(function(){
-		$(window).scroll(function(){
-			if ($(this).scrollTop()>120) {
-				$('.header').css({
-					'position' : 'fixed',
-					'height' : '40px',
-					'width' : '100%'
-				});
-				
-				$('.header').addClass('header__fixed');
-			}
-			else{
-				$('.header').css({
-					'position' : 'relative',
-					'height' : '80px',
-					'width' : ''
-				});
-				$('.header').removeClass('header__fixed');
-				
-			}
-		});
-	});
-</script>
-<footer>
+
+<footer th:fragment="footer">
 		<section class="container">
 			<section class="row">
 				<section class="col-lg-3">
