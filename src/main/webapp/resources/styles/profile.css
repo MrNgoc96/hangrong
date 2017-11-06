@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+@import url("header+footer.css");
+
+.trangcanhan{
+	width:80%;
+    height:auto;
+	margin:auto;
+	}
+.text{
+	width:100%;
+	height:30px;	
+	}
+.text h1{
+	font-size:24px;
+	font:bold;
+	font-family:Tahoma, Geneva, sans-serif;
+	}
+.thongtincanhan{
+	width:100%;
+    height:500px;
+	background:#666;
+	border:solid #CCC;
+	position:relative;
+	}
+.anhbia{
+	width:100%;
+	height:250px;
+	background:#CCC;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background: url("http://az616578.vo.msecnd.net/files/2016/04/18/635966015587331788-330383768_Fog-Roads-l.jpg");
+	background-position: center;
+	background-size: cover;
+	}
+.avata{
+	width:100%;
+	height:250px;
+	background:#FFF;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	background: url("https://static.tumblr.com/5cd22ce1b371ed4940e7d53e98c7552e/sjmxw4t/wOnn5pqku/tumblr_static_fe8263fd385b0989c9d0cd9cddb38b6b-d5clcma.jpg");
+	background-position: center;
+	background-size: cover;		
+	}
+.avataimg{
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	position:absolute;
+	top:32%;
+	left:45%;
+	z-index:1000;
+	}
+.avataimg img{
+	width:70%;
+	height:70%;
+	border-radius:50%;
+	}
+.avataimg button{
+	width:20%;
+	height:20%;
+	margin-left:550px;
+	margin-bottom:75px;
+	border-radius:50%;	
+	}
+.avata p{
+	text-align:center;
+	font-weight: bold;
+	font-size: 16px;
+	}
+.canhan{
+	width:100%;
+	background:white;
+	height:700px;
+	border:groove #999;
+	}
+#profile-name {
+	font-weight: bold;
+	font-size: 20px;
+	color: navy;
+}
+.hang{
+	width: 50%;
+	height:100%;
+	float: left;
+	border: 2px solid gray;
+}
+
+ 

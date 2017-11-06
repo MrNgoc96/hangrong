@@ -1,0 +1,78 @@
+
+@import url("header+footer.css");
+p{
+    margin:0;
+    padding:0;
+    padding-bottom:10px;
+}
+.body h1{
+		margin-left:40%;
+		color: white;
+		font-weight: bold;
+	}
+.dangtin{
+    width:100%;
+    margin:auto;   
+}
+.body{
+	width:45%;
+    padding:0;  
+    margin: auto; 
+}
+.body form {
+	width:100%;	
+	}
+.body p{
+	font-weight:bold;
+	font-size:20px;
+	 color: white; 
+	}
+.body .btn{
+border: none;
+  background: #1abc9c;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 200px;
+  color: white;
+  margin-left: 25px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);	}
+  .body .btn:hover{
+border: none;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);	}
+.left{
+    padding-right:70px;    
+    padding:0;
+    margin:0;
+}
+.right{
+    padding-left:70px;
+    margin:0;    
+}
+.gia{
+	padding-left:70px;
+    margin:0;
+	}
+.tinhtrang1{
+	padding-left:70px;
+    margin:0;
+	}
+.images{
+	padding-left:70px;
+    margin:0;	
+	}
+.right input{
+	border:solid #C60 1px;
+	
+	}
+.right select{
+    border:solid #C60 1px;
+	} 
+.right textarea{
+    border:solid #C60 1px;		
+	}
+.file{
+	background: inherit;
+}
+

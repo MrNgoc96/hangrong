@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vn" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hàng Rong</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" th:href="@{/resources/styles/product.css}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<meta name="google-signin-client_id" content="1079112506902-227jo5ghrutuo68a9jmhck28hrkhj0ah.apps.googleusercontent.com">
+	<script th:src="@{/resources/js/javascript.js}"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<header th:insert="header::header"></header>
+	<div id="product">
+		<ul>
+			<li th:each="mathang : ${listMatHang}">
+				<div class="img">
+					<img th:src="${mathang.anh[0]}" alt="">
+				</div>
+				<div class="main">
+					<a th:href="@{chi-tiet(maHang=${mathang.mahang})}">
+						<b class="title" th:text="${mathang.tenhang}">Xe dream zin 100%</b>
+					</a>
+					<p class="price" th:text="${mathang.gia}">150.000.000đ</p>
+					<p class="content" th:text="${mathang.mota}">
+					</p>
+					<p></p>
+				</div>
+				<div class="detail">
+					<div>
+						<img th:src="${mathang.nguoiban.anh}" width="5%" style="float: left;">
+						<p th:text="${mathang.nguoiban.ten}" style="float: left;"></p>
+					</div>
+					<br>
+					<div class="clear">
+						<p th:text="|Ngày đăng ${mathang.ngaydang}|"></p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="pages" th:if="${totalPage > 1}">
+				  <ul class="pagination">
+				    <li class="page-item" th:classappend="${page == 1} ? disabled">
+				    	<a class="page-link" th:href="@{danh-muc(loai=${loai},page=(${page} > 1 ? ${page-1} : '1'))}" ><span aria-hidden="true">«</span></a>
+				    </li> 
+				    <li class="page-item"  th:each="i : ${#numbers.sequence( 1, 100)}" th:if="${i <= totalPage}"  th:classappend="${page == i} ? active">
+				   		<a class="page-link" th:href="@{danh-muc(loai=${loai},page=${i})}" th:text="${i}"></a>
+				    </li>
+				    <li class="page-item" th:classappend="${page == totalPage} ? disabled">
+				    	<a class="page-link" th:href="@{danh-muc(loai=${loai},page=(${page} < ${totalPage} ? ${page+1} : ${totalPage}))}"><span aria-hidden="true">»</span></a>
+				    </li>
+				  </ul>
+		</div>
+	<section class="clear"></section>
+	<footer th:insert="footer::footer"></footer>
+</body>
+
+</html>

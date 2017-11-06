@@ -1,0 +1,281 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+  font-family: Lato;
+  src: url("../fonts/Lato/Lato-Regular.ttf"); }
+@font-face {
+  font-family: Lato-Bold;
+  src: url("../fonts/Lato/Lato-Bold.ttf"); }
+@font-face {
+  font-family: Lato-Black;
+  src: url("../fonts/Lato/Lato-Black.ttf"); }
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.ttf"); }
+@font-face {
+  font-family: RobotoSlab-Bold;
+  src: url("../fonts/RobotoSlab-Bold.ttf"); 
+  }
+  * {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Lato;
+	background: #f1f1f1;
+	background:url(https://picalls.com/wp-content/uploads/2015/06/Google-Play-Gradient-by-BenSow.jpg); 
+	background-position: center;
+	background-size: cover;
+}
+
+a {
+	color: #000;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #d13030;
+	transition: all 0.5s;
+}
+
+.container {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.header__fixed {
+	line-height: 40px !important;
+	top: 0;
+	transition: all 0.2s;
+	border-top: 5px solid #d13030;
+	z-index: 999;
+}
+
+.header__fixed img {
+	height: 25px;
+}
+
+.header__fixed .sub-menu {
+	visibility: hidden !important;
+}
+
+header .header {
+	height: 80px;
+	line-height: 80px;
+	z-index: 999;
+	background: #FFF;
+	transition: all 0.2s;
+	box-shadow: 0px 2px 5px #999;
+}
+
+header ul {
+	margin: 0;
+	padding: 0;
+}
+
+header ul.menu {
+	list-style-type: none;
+	float: right;
+	text-transform: uppercase;
+}
+
+header ul.menu li {
+	display: inline-block;
+	padding: 0 20px;
+	position: relative;
+}
+
+header ul.menu li a {
+	color: #000;
+	font-weight: bold;
+	display: block;
+}
+
+header ul.menu li a:hover {
+	color: #d13030;
+}
+
+header ul.menu li:hover ul.sub-menu {
+	display: block;
+	margin-top: -10px;
+	visibility: visible;
+}
+
+header ul.menu li ul.sub-menu {
+	position: absolute;
+	background: #FFF;
+	border-top: 3px solid #d13030;
+	width: 300px;
+	text-align: center;
+	z-index: 999;
+	transition: margin-top 0.3s;
+	visibility: hidden;
+	left: -100%;
+	box-shadow: 0 0 5px #a9a9a9;
+}
+
+header ul.menu li ul.sub-menu li {
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid #dedede;
+	transition: none;
+}
+
+header ul.menu li ul.sub-menu li a {
+	transition: none;
+}
+
+header ul.menu li.search {
+	padding: 0 !important;
+}
+
+header img {
+	height: 48px;
+}
+
+header .top-header {
+	height: 80px;
+	line-height: 80px;
+	background: #000;
+}
+
+header .top-header .col-lg-3 {
+	text-align: right;
+}
+
+header .top-header a {
+	color: #FFF;
+}
+
+header .top-header a:hover {
+	color: #d13030;
+}
+
+header .top-header a i {
+	padding-left: 10px;
+}
+
+header .top-header ul.top-menu {
+	list-style-type: none;
+}
+
+header .top-header ul.top-menu li {
+	display: inline-block;
+	padding: 0 15px;
+}
+
+header .top-header ul.top-menu li a {
+	color: #FFF;
+}
+
+header .top-header ul.top-menu li a:hover {
+	color: #d13030;
+}
+
+header .top-header ul.top-menu li:first-child {
+	padding-left: 0;
+}
+
+footer {
+	height: 250px;
+	background: #272f32;
+	border-top: 3px solid #d13030;
+	color: #FFF;
+	font-size: 14px;
+	margin-top: 30px;
+	text-align: center;
+	position: relative;
+}
+
+.row {
+	text-align: center;
+}
+
+footer a {
+	color: #FFF;
+	text-align: center;
+}
+
+footer h2 {
+	font-size: 18px;
+	font-family: RobotoSlab-Bold;
+	text-transform: none;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+.footer__box {
+	margin-left: 10px;
+	margin-top: 20px;
+	width: 100%;
+}
+
+.logoft {
+	width: 10%;
+	margin-left: 525px;
+}
+
+.nhom5 {
+	position: absolute;
+	left: 40%;
+	bottom: 20px;
+}
+
+footer .footer__box__categories .footer__category {
+	padding-bottom: 30px;
+}
+
+footer .footer__box__categories a {
+	font-size: 16px;
+}
+
+footer .footer__box__categories i {
+	font-size: 11px;
+	padding-right: 10px;
+}
+
+footer .footer__box__categories .footer__category--left {
+	float: left;
+	width: 80%;
+}
+
+footer .footer__box__categories span {
+	float: right;
+	width: 15%;
+	font-size: 14px;
+	color: #ccc;
+}
+
+footer .footer__box i {
+	font-size: 40px;
+}
+
+footer .footer__box .footer__box__lastest {
+	border-bottom: 1px solid #dedede;
+	padding: 10px 0;
+}
+
+footer .footer__box .footer__box__lastest:nth-child(4) {
+	border-bottom: none;
+}
+
+footer .footer__box .footer__box__lastest a {
+	font-weight: bold;
+}
+
+footer .footer__box .footer__box__lastest i {
+	font-size: 14px;
+}
+
+footer .footer__box .footer__box__lastest .posttime {
+	font-size: 12px;
+}
+.chungnhan {
+	width: 15%;
+	position: absolute;
+	right: 10%;
+	bottom: 20%;
+}

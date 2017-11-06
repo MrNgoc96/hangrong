@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Hàng Rong</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/resources/styles/css.css}">
+<link rel="stylesheet" th:href="@{/resources/styles/login.css}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script th:src="@{/resources/js/javascript.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<header th:insert="header::header"></header>
+	< <div class="login">
+		<form class="aaa" action="dang-ky">
+			<header>Login</header>
+			<label>Tên đăng nhập
+				<span>*</span>
+			</label>
+			<input type="text" maxlength="5" />
+			<div class="help">Tối đa 70 kí tự</div>
+			<label>Mật khẩu
+				<span>*</span>
+			</label>
+			<input type="password" maxlength="70" />
+			<div class="help">Tối đa 70 kí tự</div>
+			<label>Nhập lại mật khẩu
+				<span>*</span>
+			</label>
+			<input type="password" maxlength="70" />
+			<div class="help">Tối đa 70 kí tự</div>
+			<label>Địa chỉ
+				<span>*</span>
+			</label>
+			<input />
+			<div class="help">Phải nhập chính xác địa chỉ</div>
+			<label>Số điện thoại
+				<span>*</span>
+			</label>
+			<input />
+			<div class="help">Phải nhập chính xác số điện thoại</div>
+			<a href="dang-nhap">
+				<button type="button" id="backlogin">Quay lại
+				</button>
+			</a>
+			<button id="btnregister1">Đăng ký</button>
+		</form>
+		</div>
+		<footer th:insert="footer::footer"></footer>
+</body>
+
+</html>

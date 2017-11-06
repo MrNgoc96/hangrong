@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Hàng Rong</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/resources/styles/login.css}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="1079112506902-227jo5ghrutuo68a9jmhck28hrkhj0ah.apps.googleusercontent.com">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script th:src="@{/resources/js/javascript.js}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+	<header th:insert="header::header"></header>
+	<div class="login">
+		<form class="aaa" action="dang-nhap" method="post">
+			<header>Đăng ký thành viên</header>
+			<h5 th:text="${message}" style="margin-left: 15%;color: red"></h5>
+			<label>Tài khoản
+				<span>*</span>
+			</label>
+			<input name="username" />
+			<div class="help">Tối Đa 6 kí tự</div>
+			<label>Mật khẩu
+				<span>*</span>
+			</label>
+			<input name="password" type="password" />
+			<button type="submit" id="btnlogin">Đăng nhập</button>
+			<a href="dang-ky">
+				<button type="button" id="btnregister">Đăng ký</button>
+			</a>
+			<div style="margin-left: 40%;margin-bottom: 5%;" class="g-signin2" data-onsuccess="onSignIn"></div>
+		</form>
+	</div>
+	<footer th:insert="footer::footer"></footer>
+</body>
+
+</html>

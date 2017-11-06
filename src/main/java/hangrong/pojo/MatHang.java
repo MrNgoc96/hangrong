@@ -23,16 +23,15 @@ public class MatHang {
 	private String tingtrang;
 	@Column(name = "mota")
 	private String mota;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name = "nguoiban")
 	private ThanhVien nguoiban;
 
 	public MatHang() {
 	}
 	
-	public MatHang(int mahang, String tenhang, String anh, String ngaydang, double gia, String loaihang,
+	public MatHang(String tenhang, String anh, String ngaydang, double gia, String loaihang,
 			String tingtrang, String mota, ThanhVien nguoiban) {
-		this.mahang = mahang;
 		this.tenhang = tenhang;
 		this.anh = anh;
 		this.ngaydang = ngaydang;
@@ -42,8 +41,8 @@ public class MatHang {
 		this.mota = mota;
 		this.nguoiban = nguoiban;
 	}
-	public int getMahang() {
-		return mahang;
+	public String getMahang() {
+		return "MH"+mahang;
 	}
 
 	public void setMahang(int mahang) {
@@ -58,8 +57,8 @@ public class MatHang {
 		this.tenhang = tenhang;
 	}
 
-	public String getAnh() {
-		return anh;
+	public String[] getAnh() {
+		return anh.split(";");
 	}
 
 	public void setAnh(String anh) {

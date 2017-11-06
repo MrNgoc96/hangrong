@@ -1,113 +1,155 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
 
-<body>
-	<header th:fragment="header">
-		<section class="header">
-		<section class="container">
-			<section class="row">
-				<section class="col-lg-3">
-					<img th:src="@{resources/images/1.jpg}" alt="Logo">
-				</section>
-				<section class="col-lg-9">
-					<ul class="menu">
-						<li>
-							<a href="home">Trang chủ</a>
-						</li>
-						<li>
-							<a href="#">Gánh hàng</a>
-							<ul class="sub-menu">
+<head>
+	<meta charset="utf-8">
+
+	<body>
+		<header th:fragment="header">
+			<section class="header">
+				<section class="container">
+					<section class="row">
+						<section class="col-lg-3">
+							<img th:src="@{resources/images/1.jpg}" alt="Logo">
+						</section>
+						<section class="col-lg-9">
+							<ul class="menu">
 								<li>
-									<a href="#">Gánh hàng xe</a>
+									<a href="trang-chu">
+										<i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
 								</li>
 								<li>
-									<a href="#">Gánh hàng đồ gia dụng</a>
+									<a href="#">
+										<i class="fa fa-list" aria-hidden="true"></i>
+										Danh mục</a>
+									<ul class="sub-menu">
+										<li>
+											<a href="upload"></a>
+										</li>
+										<li>
+											<a href="#">Hàng Rong Nhà</a>
+										</li>
+										<li>
+											<a href="#">Hàng Rong Xe</a>
+										</li>
+										<li>
+											<a href="#">Đồ Gia Dụng</a>
+										</li>
+										<li>
+											<a href="#">Đồ Điện Tử, Công nghệ</a>
+										</li>
+										<li>
+											<a href="#">Đồ giải trí, thể thao</a>
+										</li>
+										<li>
+											<a href="#">Các sản phẩm khác</a>
+										</li>
+									</ul>
 								</li>
 								<li>
-									<a href="#">Menu 1</a>
+									<a href="home">
+										<i class="fa fa-search" aria-hidden="true"></i> Tìm kiếm hàng</a>
 								</li>
-								<li>
-									<a href="#">Menu 1</a>
+								<li th:if="${session.currentUser == null}">
+									<a href="dang-nhap">
+										<i class="fa fa-sign-in" aria-hidden="true"></i>
+										Đăng ký / Đăng nhập</a>
+								</li>
+								<li th:if="${session.currentUser != null}">
+									<a href="">
+										<img alt="" class="img-circle" src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" th:src="${session.currentUser.anh}">
+									</a>
+									<ul class="sub-menu" th:if="${session.currentUser.chucnang == 'ADMIN'}">
+										<li>
+											<a th:href="@{trang-ca-nhan(userId=${session.currentUser.username})}" th:text="${session.currentUser.ten}"></a>
+										</li>
+										<li>
+											<a href="#">Duyệt Tin</a>
+										</li>
+										<li>
+											<a href="#">Quản Lý Tài Khoản</a>
+										</li>
+										<li>
+											<a onclick="signOut();">
+												<i class="fa fa-sign-out" aria-hidden="true"></i> Đăng Xuất</a>
+										</li>
+									</ul>
+									<ul class="sub-menu" th:if="${session.currentUser.chucnang != 'ADMIN'}">
+										<li>
+											<a th:href="@{trang-ca-nhan(userId=${session.currentUser.username})}" th:text="${session.currentUser.ten}"></a>
+										</li>
+										<li>
+											<a href="dang-tin">Đăng tin bán hàng</a>
+										</li>
+										<li>
+											<a href="dang-tin">Giao dịch của bạn</a>
+										</li>
+										<li>
+											<a href="#" onclick="signOut();">
+												<i class="fa fa-sign-out" aria-hidden="true"></i> Đăng Xuất</a>
+										</li>
+									</ul>
 								</li>
 							</ul>
-						</li>
-						<li th:if="${session.currentUser == null}">
-							<a href="#">Đăng ký / Đăng nhập</a>
-					    </li>
-					    <li th:if="${session.currentUser != null}">
-							<a href="#" th:text="${session.currentUser}"></a>
-					    </li>
-                        <li>
-                       <nav class="navbar navbar-light bg-light">
-                       <form class="form-inline">
-                       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                       </form>
-                       </nav>
-                       </li>
-
-					</ul>
+						</section>
+					</section>
 				</section>
 			</section>
-		</section>
-		</section>
-		<section class="clear"></section>
-	</header>
-	<section class="slider hidden-xs"  th:fragment="slider">
-		<section id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>
+			<section class="clear"></section>
+		</header>
+		<section class="slider hidden-xs" th:fragment="slider">
+			<section id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
 
-			<!-- Wrapper for slides -->
-			<section class="carousel-inner">
-				<section class="item active">
-					<img src="resources/images/slider1.jpg" alt="Los Angeles">
-					<div class="carousel-caption">
-						<h3>Sony Xperia Ear Concept 2017</h3>
-						<p>LA is always so much fun!</p>
-					</div>
-				</section>
-				<section class="item">
-					<img src="resources/images/slider2.jpg" alt="Chicago">
-					<div class="carousel-caption">
-						<h3>The thinest beautiful laptops 2017</h3>
-						<p>LA is always so much fun!</p>
-					</div>
+				<!-- Wrapper for slides -->
+				<section class="carousel-inner">
+					<section class="item active">
+						<img src="resources/images/slider1.jpg" alt="Los Angeles">
+						<div class="carousel-caption">
+							<h3>Sony Xperia Ear Concept 2017</h3>
+							<p>LA is always so much fun!</p>
+						</div>
+					</section>
+					<section class="item">
+						<img src="resources/images/slider2.jpg" alt="Chicago">
+						<div class="carousel-caption">
+							<h3>The thinest beautiful laptops 2017</h3>
+							<p>LA is always so much fun!</p>
+						</div>
+					</section>
+
+					<section class="item">
+						<img src="resources/images/slider3.jpg" alt="New York">
+						<div class="carousel-caption">
+							<h3>Enjoy the sunsets in the Miami beach</h3>
+							<p>LA is always so much fun!</p>
+						</div>
+					</section>
+					<section class="item">
+						<img src="resources/images/slider4.jpg" alt="New York">
+						<div class="carousel-caption">
+							<h3>Headphone Consert in New York</h3>
+							<p>LA is always so much fun!</p>
+						</div>
+					</section>
 				</section>
 
-				<section class="item">
-					<img src="resources/images/slider3.jpg" alt="New York">
-					<div class="carousel-caption">
-						<h3>Enjoy the sunsets in the Miami beach</h3>
-						<p>LA is always so much fun!</p>
-					</div>
-				</section>
-				<section class="item">
-					<img src="resources/images/slider4.jpg" alt="New York">
-					<div class="carousel-caption">
-						<h3>Headphone Consert in New York</h3>
-						<p>LA is always so much fun!</p>
-					</div>
-				</section>
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</section>
-
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="right carousel-control" href="#myCarousel" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right"></span>
-				<span class="sr-only">Next</span>
-			</a>
 		</section>
-	</section>
-	<section id="listProduct"></section>
-</body>
+	</body>
+
 </html>

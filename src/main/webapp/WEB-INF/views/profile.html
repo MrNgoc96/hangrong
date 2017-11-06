@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Hàng Rong</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" th:href="@{/resources/styles/profile.css}">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id"
+	content="1079112506902-227jo5ghrutuo68a9jmhck28hrkhj0ah.apps.googleusercontent.com">
+<script th:src="@{/resources/js/javascript.js}"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<header th:insert="header::header"></header>
+	<div class="trangcanhan">
+		<div class="thongtincanhan">
+			<div class="anhbia">
+			</div>
+			<div class="avataimg">
+				<img th:src="${session.currentUser.anh}">
+				<button type="button">
+					<i class="fa fa-pencil" aria-hidden="true"></i>
+				</button>
+			</div>
+			<div class="avata">
+				<br>
+				<br> <br> <br>
+				<p th:text="${session.currentUser.ten}" id="profile-name">Tên</p>
+				<p th:if="${session.currentUser.chucnang != 'ADMIN'}" th:text="|Cấp gánh hàng: ${capGanhHang}|">Cấp gánh hàng</p>
+				<p th:text="|Địa chỉ: ${session.currentUser.diachi}|">Địa chỉ</p>
+				<p th:text="|Số điện thoại: ${session.currentUser.sodienthoai}|">Ngày tham gia :</p>
+				<p th:if="${session.currentUser.chucnang != 'ADMIN'}" th:text="|Ngày tham gia: ${session.currentUser.ngaythamgia}|">Ngày tham gia :</p>
+			</div>
+		</div>
+		<div class="canhan" th:if="${session.currentUser.chucnang != 'ADMIN'}">
+			<div class="hang"></div>
+			<div class="hang"></div>
+		</div>
+
+	</div>
+	<br>
+	<br>
+	<section class="clear"></section>
+	<footer th:insert="footer::footer"></footer>
+</body>
+
+</html>

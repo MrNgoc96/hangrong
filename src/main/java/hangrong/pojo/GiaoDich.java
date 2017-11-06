@@ -36,10 +36,8 @@ public class GiaoDich {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GiaoDich(int maGiaoDich, MatHang matHang, String tgDatHang, String tgNhanHang, ThanhVien nguoiBan,
+	public GiaoDich( MatHang matHang, String tgDatHang, String tgNhanHang, ThanhVien nguoiBan,
 			ThanhVien nguoiMua) {
-		super();
-		this.maGiaoDich = maGiaoDich;
 		this.matHang = matHang;
 		this.tgDatHang = tgDatHang;
 		this.tgNhanHang = tgNhanHang;
