@@ -53,24 +53,23 @@ public class MainControler {
 	}
 
 	@RequestMapping(value = "/dang-nhap", method = RequestMethod.POST)
-	protected ModelAndView login(@RequestParam String username, @RequestParam String password, Model model,
+	protected String login(@RequestParam String username, @RequestParam String password,ModelMap model,
 			HttpSession session) {
 		ThanhVien thanhVien;
-		ModelAndView modelAndView;
 		if (ThanhVienDAO.checkLogin(username, password)) {
 			thanhVien = ThanhVienDAO.getThanhVien(username);
 			session.setAttribute("currentUser", thanhVien);
-			modelAndView = new ModelAndView("redirect:trang-chu");
+			model.addAttribute("loginSuccess", true);
+			return "index";
 		} else {
 			model.addAttribute("message", "Tài khoản hoặc mật khẩu không chính xác, xin mời bạn hãy nhập lại !");
-			modelAndView = new ModelAndView("login");
+			return "login";
 		}
-		return modelAndView;
 	}
 
 	@RequestMapping(value = "/dang-xuat", method = RequestMethod.GET)
-	protected String logout(HttpServletRequest request) {
-		request.getSession().setAttribute("currentUser", null);
+	protected String logout(HttpSession session) {
+		session.setAttribute("currentUser", null);
 		return "redirect:trang-chu";
 	}
 
@@ -119,6 +118,12 @@ public class MainControler {
 		model.addAttribute("capGanhHang",capGanhHang);
 		return "profile";
 	}
+	@RequestMapping(value = "/trang-ca-nhan", method = RequestMethod.POST)
+	protected String editProfile(@RequestParam String userId, Model model) {
+		String capGanhHang = ThanhVienDAO.getCapGanhHang(userId);
+		model.addAttribute("capGanhHang",capGanhHang);
+		return "profile";
+	}
 	
 	@RequestMapping(value = "/google-sign-in", method = RequestMethod.POST)
 	protected String googleSignIn(@RequestParam String idToken,HttpSession session) {
@@ -129,11 +134,19 @@ public class MainControler {
 		ThanhVien thanhVien = ThanhVienDAO.getThanhVien(id);
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 		if (thanhVien == null) {
-			thanhVien = new ThanhVien(id, "", name, "", "", image, "Thành Viên", format.format(new Date()));
+			thanhVien = new ThanhVien(id, "", name, "", "", image, "GoogleUser", format.format(new Date()));
 			ThanhVienDAO.addThanhVien(thanhVien);
 		}
 		session.setAttribute("currentUser", thanhVien);
+		session.setAttribute("googleLogin", true);
 		return "login";
+	}
+	
+	@RequestMapping(value = "/google-sign-out", method = RequestMethod.GET)
+	protected String googleSignOut(HttpSession session) {
+		session.setAttribute("googleLogin", null);
+		session.setAttribute("currentUser", null);
+		return "redirect:trang-chu";
 	}
 
 }

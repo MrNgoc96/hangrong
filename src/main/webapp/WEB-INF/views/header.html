@@ -6,6 +6,25 @@
 
 	<body>
 		<header th:fragment="header">
+		<div id="popup">
+			<div id="popup-message">
+				<div id="popup-title">
+					<h3>Thông Báo</h3>
+				</div>
+				<div id="popup-me">
+					<p>Bạn phải nhập mật khẩu !</p>
+				</div>
+				<img alt="Icon Inform" src="http://www.franklinlakes.org/vertical/Sites/%7B02E9C1B5-59B4-4B82-8487-CE42C675CF8A%7D/uploads/Information.png">
+				<button class="btn btn-danger" id="close-popup" onclick="closePopup()">OK</button>
+			</div>
+		</div>
+		<script type="text/javascript" th:inline="javascript" th:if="${loginSuccess==true}">
+			let inform = "Chào mừng <b style='color:red'>"+/*[[${session.currentUser.ten}]]*/;
+			showPopup('Đăng nhập thành công',inform+'</b> đã đăng nhập !');
+		</script>
+		<script type="text/javascript" th:inline="javascript">
+			var googleLogin = /*[[${session.googleLogin}]]*/;
+		</script>
 			<section class="header">
 				<section class="container">
 					<section class="row">
@@ -70,7 +89,7 @@
 											<a href="#">Quản Lý Tài Khoản</a>
 										</li>
 										<li>
-											<a onclick="signOut();">
+											<a href="#" onclick="signOut();">
 												<i class="fa fa-sign-out" aria-hidden="true"></i> Đăng Xuất</a>
 										</li>
 									</ul>

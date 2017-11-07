@@ -51,10 +51,16 @@ public class ThanhVienDAO {
 
 	public static ThanhVien getThanhVien(String username) {
 		session = HibernateUtil.getSession();
-		session.beginTransaction();
-		ThanhVien thanhVien = session.get(ThanhVien.class, username);
-		session.getTransaction().commit();
-		return thanhVien;
+		try {
+			session.beginTransaction();
+			ThanhVien thanhVien = session.get(ThanhVien.class, username);
+			session.getTransaction().commit();
+			return thanhVien;
+		} catch (Exception e) {
+			session.getTransaction().rollback();
+			return null;
+		}
+
 	}
 
 	public static boolean updateThanhVien(ThanhVien thanhVien) {
@@ -85,7 +91,7 @@ public class ThanhVienDAO {
 		try {
 			session = HibernateUtil.getSession();
 			session.beginTransaction();
-			ThanhVien thanhVien =  session.get(ThanhVien.class, username);
+			ThanhVien thanhVien = session.get(ThanhVien.class, username);
 			session.delete(thanhVien);
 			session.getTransaction().commit();
 			return true;
@@ -93,16 +99,16 @@ public class ThanhVienDAO {
 			return false;
 		}
 	}
-	
+
 	public static String getCapGanhHang(String userId) {
 		int total = getThanhVien(userId).getDsMathang().size();
-		if(total<5) {
+		if (total < 5) {
 			return "Hàng Rong Sơ Cấp";
-		}else if(total>=5 && total < 10) {
+		} else if (total >= 5 && total < 10) {
 			return "Hàng Rong Trung Cấp";
-		}else if(total>=10 && total < 15) {
+		} else if (total >= 10 && total < 15) {
 			return "Hàng Rong Cao Cấp";
-		}else {
+		} else {
 			return "Hàng Rong VIP";
 		}
 	}

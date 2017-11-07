@@ -16,6 +16,7 @@
 <meta name="google-signin-client_id"
 	content="1079112506902-227jo5ghrutuo68a9jmhck28hrkhj0ah.apps.googleusercontent.com">
 <script th:src="@{/resources/js/javascript.js}"></script>
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -28,14 +29,16 @@
 			</div>
 			<div class="avataimg">
 				<img th:src="${session.currentUser.anh}">
-				<button type="button">
-					<i class="fa fa-pencil" aria-hidden="true"></i>
+				<button type="button" style="width: 30%;height: 30%;" id="edit-profile" class="btn btn-default" data-toggle="modal" data-target="#editProfile">
+					<i class="fa fa-pencil" aria-hidden="true" ></i>
 				</button>
+				<input id="url" type="hidden" th:value="|./trang-ca-nhan?userId=${session.currentUser.username}|">
 			</div>
 			<div class="avata">
 				<br>
 				<br> <br> <br>
 				<p th:text="${session.currentUser.ten}" id="profile-name">Tên</p>
+				<p th:text="${session.currentUser.chucnang == 'ADMIN' ? ('Tài khoản của bạn là Quản lý') : ('')}" style="color: red;font-weight: bold;"></p>
 				<p th:if="${session.currentUser.chucnang != 'ADMIN'}" th:text="|Cấp gánh hàng: ${capGanhHang}|">Cấp gánh hàng</p>
 				<p th:text="|Địa chỉ: ${session.currentUser.diachi}|">Địa chỉ</p>
 				<p th:text="|Số điện thoại: ${session.currentUser.sodienthoai}|">Ngày tham gia :</p>
@@ -48,10 +51,56 @@
 		</div>
 
 	</div>
+	<div class="modal fade" id="editProfile" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+   <form id="form-edit-profile" action="capnhat" method="post">
+    <div class="modal-content" id="profile-content">
+      <div class="modal-header">
+        <h3 class="modal-title" style="font-weight: bold;">Thông tin cá nhân</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<img alt="" th:src="${session.currentUser.anh}" id="avatar" class="img-circle" width="120px" height="120px">
+        	<input type="file" style="margin:2% 30%;" id="avatar-img" name="img-file"><br>
+        		<div id="name-error"></div><br>
+	        	<div class="input-group">
+		        	<div class="input-group-addon" ><i class="fa fa-user-circle" aria-hidden="true"></i> Họ Tên</div>
+		        	<input type="text" class="form-control" id="username" name="name" placeholder="Nhập họ tên" th:value="${session.currentUser.ten}">
+	      		</div><br>
+	      		<div th:classappend="${session.currentUser.chucnang=='GoogleUser'} ? 'hidden'">
+	      		<div id="pass-error" ></div><br>
+	      		<div class="input-group" >
+		        	<div class="input-group-addon"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Mật Khẩu</div>
+		        	<input type="password" class="form-control" id="profile-pass" name="password" placeholder="Nhập mật khẩu" th:value="${session.currentUser.matkhau}">
+	      		</div><br>
+	      		</div>
+	      		<div id="address-error"></div><br>
+	      		<div class="input-group">
+		        	<div class="input-group-addon"><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ</div>
+		        	<input type="text" class="form-control" id="profile-address" name="address" placeholder="Nhập địa chỉ" th:value="${session.currentUser.diachi}">
+	      		</div><br>
+	      		<div id="phone-error"></div><br>
+	      		<div class="input-group">
+		        	<div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i> Số điện thoại</div>
+		        	<input type="text" class="form-control" id="profile-phone" name="phone" placeholder="Nhập số điện thoại" th:value="${session.currentUser.sodienthoai}">
+	      		</div>
+        
+      </div>
+      <div class="modal-footer">
+      	<button type="submit" class="btn btn-primary">Cập nhật</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+   </form>
+  </div>
+</div>
 	<br>
 	<br>
 	<section class="clear"></section>
 	<footer th:insert="footer::footer"></footer>
+	<script th:src="@{/resources/js/profile.js}"></script>
 </body>
 
 </html>

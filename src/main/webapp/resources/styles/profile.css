@@ -88,5 +88,25 @@
 	float: left;
 	border: 2px solid gray;
 }
+#form-edit-profile{
+	font-weight: bold;
+	text-align: center;
+}
+#form-edit-profile input[type=file]{
+	background: none;
+}
+#form-edit-profile .input-group{
+	width: 100%;
+}
+#form-edit-profile .input-group-addon{
+	width:120px;
+	background:blue !important;
+	color: white !important;
+	font-weight: bold;
+}
+.hidden{
+	display: none;
+}
+
 
  
