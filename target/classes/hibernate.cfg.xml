@@ -14,8 +14,8 @@
 		<property name="connection.characterEncoding">utf8</property>
 		<property name="current_session_context_class">thread</property>
 
-		<mapping class="hangrong.pojo.ThanhVien" />
-		<mapping class="hangrong.pojo.MatHang" />
-		<mapping class="hangrong.pojo.GiaoDich" />
+		<mapping class="hangrong.pojo.Account" />
+		<mapping class="hangrong.pojo.Product" />
+		<mapping class="hangrong.pojo.ProductCategory" />
 	</session-factory>
 </hibernate-configuration>

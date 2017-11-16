@@ -1,10 +1,21 @@
 package hangrong.pojo;
 
-import javax.persistence.*;
+import java.text.DecimalFormat;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "mathang")
-public class MatHang {
+public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "mamathang")
@@ -17,21 +28,22 @@ public class MatHang {
 	private String ngaydang;
 	@Column(name = "gia")
 	private double gia;
-	@Column(name = "loaihang")
-	private String loaihang;
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+	@JoinColumn(name = "madanhmuc")
+	private ProductCategory loaihang;
 	@Column(name = "tinhtrang")
 	private String tingtrang;
 	@Column(name = "mota")
 	private String mota;
 	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name = "nguoiban")
-	private ThanhVien nguoiban;
+	private Account nguoiban;
 
-	public MatHang() {
+	public Product() {
 	}
 	
-	public MatHang(String tenhang, String anh, String ngaydang, double gia, String loaihang,
-			String tingtrang, String mota, ThanhVien nguoiban) {
+	public Product(String tenhang, String anh, String ngaydang, double gia, ProductCategory loaihang,
+			String tingtrang, String mota, Account nguoiban) {
 		this.tenhang = tenhang;
 		this.anh = anh;
 		this.ngaydang = ngaydang;
@@ -41,8 +53,9 @@ public class MatHang {
 		this.mota = mota;
 		this.nguoiban = nguoiban;
 	}
-	public String getMahang() {
-		return "MH"+mahang;
+
+	public int getMahang() {
+		return mahang;
 	}
 
 	public void setMahang(int mahang) {
@@ -73,19 +86,20 @@ public class MatHang {
 		this.ngaydang = ngaydang;
 	}
 
-	public double getGia() {
-		return gia;
+	public String getGia() {
+		DecimalFormat format = new DecimalFormat("###,###,###");
+		return format.format(gia);
 	}
 
 	public void setGia(double gia) {
 		this.gia = gia;
 	}
 
-	public String getLoaihang() {
+	public ProductCategory getLoaihang() {
 		return loaihang;
 	}
 
-	public void setLoaihang(String loaihang) {
+	public void setLoaihang(ProductCategory loaihang) {
 		this.loaihang = loaihang;
 	}
 
@@ -105,11 +119,11 @@ public class MatHang {
 		this.mota = mota;
 	}
 
-	public ThanhVien getNguoiban() {
+	public Account getNguoiban() {
 		return nguoiban;
 	}
 
-	public void setNguoiban(ThanhVien nguoiban) {
+	public void setNguoiban(Account nguoiban) {
 		this.nguoiban = nguoiban;
 	}
 	

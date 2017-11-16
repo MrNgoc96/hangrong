@@ -21,79 +21,61 @@
 							<img src="resources/images/nha.jpg" alt="">
 							<section class="tech__description">
 								<span class="catename"> CLICK </span>
-								<span class="posttime">
-									<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
-								</span>
 								<h3>Hàng rong nhà</h3>
 							</section>
 						</section>
 					</a>
 				</section>
 				<section class="tech__listnews col-lg-4">
-					<a href="#">
+					<a th:href="@{danh-muc(loai=hang-rong-xe)}">
 						<section class="tech__listnews__box">
 							<img src="resources/images/xeco.jpg" alt="">
 							<section class="tech__description">
 								<span class="catename"> CLICK </span>
-								<span class="posttime">
-									<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
-								</span>
 								<h3>Hàng rong xe</h3>
 							</section>
 						</section>
 					</a>
 				</section>
 				<section class="tech__listnews col-lg-4">
-					<a href="#">
+					<a th:href="@{danh-muc(loai=do-gia-dung)}">
 						<section class="tech__listnews__box">
 							<img src="resources/images/nt.jpg" alt="">
 							<section class="tech__description">
 								<span class="catename"> CLICK </span>
-								<span class="posttime">
-									<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
-								</span>
 								<h3>Nội ngoại thất,đồ gia dụng.</h3>
 							</section>
 						</section>
 					</a>
 				</section>
 				<section class="tech__listnews col-lg-4">
-					<a href="#">
+					<a th:href="@{danh-muc(loai=dien-tu-cong-nghe)}">
 						<section class="tech__listnews__box">
 							<img src="resources/images/DDT.jpg" alt="">
 							<section class="tech__description">
 								<span class="catename"> CLICK </span>
-								<span class="posttime">
-									<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
-								</span>
 								<h3>Đồ điện tử,công nghệ số.</h3>
 							</section>
 						</section>
 					</a>
 				</section>
 				<section class="tech__listnews col-lg-4">
-					<a href="#">
+					<a th:href="@{danh-muc(loai=giai-tri-the-thao)}">
 						<section class="tech__listnews__box">
 							<img src="resources/images/dgt.gif" alt="">
 							<section class="tech__description">
 								<span class="catename"> CLICK </span>
-								<span class="posttime">
-									<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
-								</span>
-								<h3>Đồ giải trí,thể thao,sở thích.</h3>
+								<h3>Đồ giải trí,sở thích.</h3>
 							</section>
 						</section>
 					</a>
 				</section>
 				<section class="tech__listnews col-lg-4">
-					<a href="#">
+					<a th:href="@{danh-muc(loai=san-pham-khac)}">
 						<section class="tech__listnews__box">
 							<img src="resources/images/vieclam.jpg" alt="">
 							<section class="tech__description">
 								<span class="catename"> CLICK </span>
-								<span class="posttime">
-									<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
-								</span>
 								<h3>Việc làm,dịch vụ.</h3>
 							</section>
 						</section>
@@ -118,10 +100,9 @@
 							<section class="tech__description">
 								<span class="catename"> Hot </span>
 								<span class="posttime">
-									<i class="fa fa-clock-o"></i> 12 OCTOBER, 2017
+									<i class="fa fa-clock-o"></i><span th:text="${mathang.ngaydang}"></span>
 								</span>
 								<h3 th:text="${mathang.tenhang}">
-									<h4>43.500.000 vnđ</h4>
 								</h3>
 							</section>
 						</section>

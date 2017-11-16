@@ -26,20 +26,14 @@
 					<a th:href="@{chi-tiet(maHang=${mathang.mahang})}">
 						<b class="title" th:text="${mathang.tenhang}">Xe dream zin 100%</b>
 					</a>
-					<p class="price" th:text="${mathang.gia}">150.000.000đ</p>
-					<p class="content" th:text="${mathang.mota}">
-					</p>
-					<p></p>
+					<p class="price" th:text="|Giá : ${mathang.gia}đ|">150.000.000đ</p>
+					<p class="description" th:text="${mathang.mota}"></p>
 				</div>
 				<div class="detail">
-					<div>
-						<img th:src="${mathang.nguoiban.anh}" width="5%" style="float: left;">
-						<p th:text="${mathang.nguoiban.ten}" style="float: left;"></p>
-					</div>
+					<img th:src="${mathang.nguoiban.anh}" >
 					<br>
-					<div class="clear">
-						<p th:text="|Ngày đăng ${mathang.ngaydang}|"></p>
-					</div>
+					<p th:text="${mathang.nguoiban.ten}" style="font-weight: bold;color: blue;"></p>
+					<p th:text="|Ngày đăng ${mathang.ngaydang}|"></p>
 				</div>
 			</li>
 		</ul>

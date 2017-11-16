@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="ThanhVien")
-public class ThanhVien {
+public class Account {
 	@Id
 	@Column(name="tendangnhap")
 	private String username;
@@ -29,11 +29,11 @@ public class ThanhVien {
 	private String ngaythamgia;
 	@OneToMany(cascade= CascadeType.ALL,fetch=FetchType.EAGER)
 	@JoinColumn(name="nguoiban")
-	private List<MatHang> dsMathang;
+	private List<Product> dsMathang;
 
-	public ThanhVien() {}
+	public Account() {}
 
-	public ThanhVien(String username, String matkhau, String ten, String sodienthoai, String diachi, String anh,
+	public Account(String username, String matkhau, String ten, String sodienthoai, String diachi, String anh,
 			String chucnang, String ngaythamgia) {
 		this.username = username;
 		this.matkhau = matkhau;
@@ -109,11 +109,11 @@ public class ThanhVien {
 		this.chucnang = chucnang;
 	}
 
-	public ArrayList<MatHang> getDsMathang() {
-		return new ArrayList<MatHang>(dsMathang);
+	public ArrayList<Product> getDsMathang() {
+		return new ArrayList<Product>(dsMathang);
 	}
 
-	public void setDsMathang(List<MatHang> dsMathang) {
+	public void setDsMathang(List<Product> dsMathang) {
 		this.dsMathang = dsMathang;
 	}
 	
